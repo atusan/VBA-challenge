@@ -8,7 +8,7 @@ For Each ws In Worksheets
           'Last Row
           LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
           
-          'Cells(1, "I").Value = "Ticker"
+          
             Dim Ticker_Name As String
             Dim Open_Price As Double
             Dim Close_Price As Double
