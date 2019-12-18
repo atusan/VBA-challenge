@@ -8,7 +8,7 @@ For Each ws In Worksheets
           'Last Row
           LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
           
-          
+          'Cells(1, "I").Value = "Ticker"
             Dim Ticker_Name As String
             Dim Open_Price As Double
             Dim Close_Price As Double
@@ -29,7 +29,7 @@ For Each ws In Worksheets
           ws.Range("K1").Value = " Percent_Change"
           ws.Range("L1").Value = " Total Stock Volume"
          'Open_Price = ws.Cells(i, 3).Value
-          Open_Price = Cells(2, 3).Value
+          Open_Price = ws.Cells(2, 3).Value
            
            For i = 2 To LastRow
                 
@@ -39,7 +39,7 @@ For Each ws In Worksheets
                        ws.Range("I" & Summary_Table_Row).Value = Ticker_Name
                        
                      
-                        Close_Price = Cells(i, 6).Value
+                        Close_Price = ws.Cells(i, 6).Value
                         Yearly_Change = Close_Price - Open_Price
                          ws.Range("J" & Summary_Table_Row).Value = Yearly_Change
                         
@@ -56,7 +56,7 @@ For Each ws In Worksheets
                             ws.Range("K" & Summary_Table_Row).NumberFormat = "0.00%"
                        
                         End If
-                          Volume = Volume + Cells(i, 7).Value
+                          Volume = Volume + ws.Cells(i, 7).Value
                           ws.Range("L" & Summary_Table_Row).Value = Volume
     
                         
@@ -67,11 +67,11 @@ For Each ws In Worksheets
                         ''ws.Range("K" & Summary_Table_Row).NumberFormat = "0.00%"
                          ''ws.Range("L" & Summary_Table_Row).Value = Percent_Change
                         Summary_Table_Row = Summary_Table_Row + 1
-                        Open_Price = Cells(i + 1, 3)
+                        Open_Price = ws.Cells(i + 1, 3)
                         Volume = 0
                         
                Else
-                      Volume = Volume + Cells(i, 7).Value
+                      Volume = Volume + ws.Cells(i, 7).Value
          
               End If
           
